@@ -8,15 +8,11 @@ class Squares
   end
 
   def square_of_sum
-    y = 0
-    (1..@numero).each { |x| y += x }
-    y**2
+    (1..@numero).reduce(:+)**2
   end
 
   def sum_of_squares
-    y = 0
-    (1..@numero).each { |x| y += x**2 }
-    y
+    (1..@numero).inject { |index, n| index + (n**2) }
   end
 
   def difference
