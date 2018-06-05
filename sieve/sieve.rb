@@ -9,11 +9,6 @@ class Sieve
 
   def primes
     primes = (2..@limite).to_a
-    primes.each do |x|
-      (x..@limite).each do |y|
-        primes.delete(x * y) if x * y <= @limite
-      end
-    end
-    primes
+    primes.each { |x| primes.delete_if { |y| y > x && (y % x).zero? } }
   end
 end
